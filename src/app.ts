@@ -44,6 +44,11 @@ app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/project", projectsRoutes);
 app.use("/api/v1/task", tasksRoutes);
 
+// Home Route
+app.get("/", (req: Request, res: Response) => {
+  res.send("Welcome to the Task Management API");
+});
+
 // Global Error Handler
 app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   if (err instanceof CustomError) {
